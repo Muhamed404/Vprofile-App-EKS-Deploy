@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vpro-ingress
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+spec:
+  ingressClassName: alb
+  rules:
+  - host: vporfile.devopshire.online
+    http:
+      path: /
+      pathType: Perfix
+      backend:
+        service:
+          name: vproapp-service
+          port:
+            number: 8080
