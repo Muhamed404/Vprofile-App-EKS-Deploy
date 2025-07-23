@@ -9,7 +9,7 @@ This repository contains Kubernetes manifests to deploy the **Vprofile applicati
 | File                | Purpose                                                                   |
 | ------------------- | ------------------------------------------------------------------------- |
 | `appdeploy.yaml`    | Deployment for the application (Tomcat app)                               |
-| `appservice.yaml`   | Service (usually ClusterIP/NodePort) to expose the application internally |
+| `appservice.yaml`   | Service (ClusterIP) to expose the application internally |
 | `appingress.yaml`   | Ingress resource to expose the app externally via AWS ALB                 |
 | `dbdeploy.yaml`     | Deployment for MySQL database                                             |
 | `dbservice.yaml`    | Service to access MySQL internally                                        |
@@ -18,7 +18,7 @@ This repository contains Kubernetes manifests to deploy the **Vprofile applicati
 | `mcservice.yaml`    | Service for Memcached                                                     |
 | `rmqdeploy.yaml`    | Deployment for RabbitMQ                                                   |
 | `rmqservice.yaml`   | Service for RabbitMQ                                                      |
-| `secret.yaml`       | Kubernetes Secret for sensitive data (e.g., DB password)                  |
+| `secret.yaml`       | Kubernetes Secret for sensitive data (RabbitMQ password, DB password)                  |
 
 ---
 
@@ -26,8 +26,8 @@ This repository contains Kubernetes manifests to deploy the **Vprofile applicati
 
 The application consists of:
 
-* **Frontend/App Tier** (Tomcat) deployed via `appdeploy.yaml`
-* **Database Tier** (MySQL) with persistent storage (`dbdeploy.yaml` + `dbpvc.yaml`)
+* **Frontend/App Tier** (Tomcat) 
+* **Database Tier** (MySQL) with persistent storage 
 * **Caching Layer** (Memcached)
 * **Messaging Layer** (RabbitMQ)
 * **Ingress Controller** (AWS Load Balancer Controller) exposing the app externally
@@ -99,6 +99,13 @@ The `appingress.yaml` exposes the application using **AWS ALB**:
 * AWS Load Balancer Controller installed.
 * EBS CSI driver installed with a ServiceAccount that has `AmazonEBSCSIDriverPolicy`.
 
+### 📖 Driver Installation Documentation
+
+For storage and ingress to work properly, you need to install the following drivers:
+
+- **AWS EBS CSI Driver:** Documentation: [Amazon EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html)
+
+- **AWS Load Balancer Controller (for ALB):** Documentation: [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/
 ---
 
 ## ✨ **Deployment**
