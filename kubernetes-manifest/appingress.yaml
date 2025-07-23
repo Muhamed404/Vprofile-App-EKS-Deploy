@@ -4,6 +4,7 @@ metadata:
   name: vpro-ingress
   annotations:
     kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/target-type: ip
     alb.ingress.kubernetes.io/scheme: internet-facing
 spec:
   ingressClassName: alb
