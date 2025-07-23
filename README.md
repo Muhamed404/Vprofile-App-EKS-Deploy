@@ -105,7 +105,7 @@ For storage and ingress to work properly, you need to install the following driv
 
 - **AWS EBS CSI Driver:** Documentation: [Amazon EBS CSI Driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html)
 
-- **AWS Load Balancer Controller (for ALB):** Documentation: [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/
+- **AWS Load Balancer Controller (for ALB):** Documentation: [AWS Load Balancer Controller]([https://kubernetes-sigs.github.io/](https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html)
 ---
 
 ## ✨ **Deployment**
