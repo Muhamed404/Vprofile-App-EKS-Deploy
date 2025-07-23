@@ -1,4 +1,4 @@
-# 🚀 Vprofile App – Kubernetes Deployment on AWS EKS
+#  Vprofile App – Kubernetes Deployment on AWS EKS
 
 This repository contains Kubernetes manifests to deploy the **Vprofile application** (multi‑tier) on an **EKS cluster** with persistent storage and ingress access.
 
@@ -22,7 +22,7 @@ This repository contains Kubernetes manifests to deploy the **Vprofile applicati
 
 ---
 
-## 🏗 **Architecture**
+## **Architecture**
 
 The application consists of:
 
@@ -34,7 +34,7 @@ The application consists of:
 
 ---
 
-## ⚙️ **Deployment Order**
+##  **Deployment Order**
 
 Apply the manifests in the following order:
 
@@ -69,7 +69,7 @@ kubectl apply -f appingress.yaml
 
 ---
 
-## 🌐 **Ingress**
+## **Ingress**
 
 The `appingress.yaml` exposes the application using **AWS ALB**:
 
@@ -85,7 +85,7 @@ The `appingress.yaml` exposes the application using **AWS ALB**:
 
 ---
 
-## 📦 **Storage**
+## **Storage**
 
 * `storageclass.yaml` uses **EBS CSI driver** with `WaitForFirstConsumer`.
 * `dbpvc.yaml` claims persistent storage for MySQL.
@@ -93,13 +93,13 @@ The `appingress.yaml` exposes the application using **AWS ALB**:
 
 ---
 
-## ✅ **Prerequisites**
+##  **Prerequisites**
 
 * An **EKS cluster** with OIDC enabled.
 * AWS Load Balancer Controller installed.
 * EBS CSI driver installed with a ServiceAccount that has `AmazonEBSCSIDriverPolicy`.
 
-### 📖 Driver Installation Documentation
+### Driver Installation Documentation
 
 For storage and ingress to work properly, you need to install the following drivers:
 
@@ -108,7 +108,7 @@ For storage and ingress to work properly, you need to install the following driv
 - **AWS Load Balancer Controller (for ALB):** Documentation: ([AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/lbc-helm.html)
 ---
 
-## ✨ **Deployment**
+##  **Deployment**
 
 After applying all manifests, verify resources:
 
@@ -123,7 +123,7 @@ Your application should be accessible through the **Ingress ALB DNS**.
 
 ---
 
-## 🧬 **Troubleshooting**
+## **Troubleshooting**
 
 * **PVC Pending** → Check EBS CSI driver & IAM permissions.
 * **Ingress Failing** → Ensure Service ports are correct and ALB Controller IAM role is configured.
