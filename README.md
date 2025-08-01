@@ -3,7 +3,11 @@
 This repository contains Kubernetes manifests to deploy the **Vprofile application** (multi‑tier) on an **EKS cluster** with persistent storage and ingress access.
 
 ---
+## 🚀 Architecture Overview
 
+![Architecture Diagram](eks.png)
+
+---
 ## 📂 **Kubernetes Manifests**
 
 | File                | Purpose                                                                   |
